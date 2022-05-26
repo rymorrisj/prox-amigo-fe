@@ -9,7 +9,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/"></Route>
-          <Route path="/singup" element={<Signup />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
           <Route path="/signin" element={<Signin />}></Route>
         </Routes>
         <StickyFooter />
