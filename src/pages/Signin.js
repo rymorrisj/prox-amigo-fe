@@ -1,10 +1,10 @@
 import AuthForm from "../components/Auth/AuthForm";
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import Checkbox from '@mui/material/Checkbox';
 import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 const Signin = () => {
   return (
@@ -31,12 +31,12 @@ const Signin = () => {
             autoComplete="new-password"
           />
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <FormControlLabel
-              control={ <Checkbox value="remember" color="primary" /> }
+              control={ <Checkbox name="remember" value="true" color="primary" /> }
               label="Remember me"
           />
-        </Grid>
+        </Grid> */}
       </Grid>
       <Button
         type="submit"

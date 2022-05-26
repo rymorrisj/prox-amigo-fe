@@ -1,7 +1,7 @@
-const Joi = require('joi');
-const pick = require('../utils/pick');
+import Joi from 'joi'
+import pick from '../utils/pick'
 
-const validate = (schema) => (args) => {
+const validate = (schema, args) => {
   const validSchema = pick(schema, ['params', 'query', 'body']);
   const object = pick(args, Object.keys(validSchema));
   const { value, error } = Joi.compile(validSchema)
@@ -14,6 +14,7 @@ const validate = (schema) => (args) => {
   }
 
   Object.assign(args, value);
+  return true;
 };
 
 const isValidObjectId = (value, helpers) => {
@@ -35,6 +36,7 @@ const isValidPassword = (value, helpers) => {
 
     return value;
 };
+
 export {
     validate,
     isValidObjectId,

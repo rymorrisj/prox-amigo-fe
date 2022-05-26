@@ -13,5 +13,5 @@
     }, {});
   };
   
-export { pick };
+export default pick;
   
