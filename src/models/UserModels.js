@@ -3,7 +3,7 @@ import { isValidPassword, isValidObjectId } from '../helpers/validation-helpers'
 
 const createUser = {
   body: Joi.object().keys({
-    email: Joi.string().required().email(),
+    email: Joi.string().required().email({ tlds: { allow: false } }),
     password: Joi.string().required().custom(isValidPassword),
     name: Joi.string().required(),
     role: Joi.string().required().valid('user'),
@@ -22,7 +22,7 @@ const updateUser = {
   }),
   body: Joi.object()
     .keys({
-      email: Joi.string().email(),
+      email: Joi.string().email({ tlds: { allow: false } }),
       password: Joi.string().custom(isValidPassword),
       name: Joi.string(),
     })
