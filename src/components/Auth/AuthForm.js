@@ -3,15 +3,22 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { validate } from '../../helpers/validation-helpers';
 import { register, login } from '../../models/AuthModels';
-import axios from '../../api/axios';
 import useAxios from '../../hooks/useAxios';
+import useAuth from '../../hooks/useAuth';
 import AUTH_ROUTES from '../../api/auth';
 import { extractFormData  } from '../../helpers/request-helpers';
 
 const AuthForm = (props) => {
-    const [axiosFetch] = useAxios();
+    // eslint-disable-next-line no-unused-vars
+    const [auth, setAuth] = useAuth();
+    const { axiosFetch } = useAxios();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -21,13 +28,20 @@ const AuthForm = (props) => {
         if (isDataValid) {
           const requestRoute = props.isSignin ? AUTH_ROUTES.AUTH_SIGNIN : AUTH_ROUTES.AUTH_SIGNUP;
           return await axiosFetch({
-            axiosInstance: axios,
             method: 'POST',
             url: requestRoute,
             requestConfig: { ...data }
           }).then(response => {
-            console.log(response.data);
-          })
+            const data = response?.data;
+            if (data) {
+              const { user, accessToken } = data;
+              setAuth({ user, accessToken });
+
+              // only use from if its not index or signup
+              const navigateTo = from === '/' || from === '/signup' ? '/map' : from;
+              navigate(navigateTo, { replace: true });
+            }
+          });
         }
     };
 

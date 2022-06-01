@@ -6,7 +6,10 @@ import axios from "axios";
 // message: "password must be at least 8 characters"
 // stack: stackTrace
 // }
+const BASE_URL = 'http://localhost:3001/v1';
 
 export default axios.create({
-    baseURL: 'http://localhost:3001/v1'
+    baseURL: BASE_URL,
+    headers: { 'Content-Type': 'application/json' },
+    withCredentials: true
 });
