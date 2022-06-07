@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 export default function StickyFooter() {
   return (
     <Box 
-        component="footer"
+        component='footer'
         sx={{ 
             position: 'fixed', 
             bottom: 0, 

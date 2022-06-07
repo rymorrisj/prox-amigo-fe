@@ -1,9 +1,9 @@
-import AuthForm from "../components/Auth/AuthForm";
+import AuthForm from '../components/Auth/AuthForm';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 // import FormControlLabel from '@mui/material/FormControlLabel';
 // import Checkbox from '@mui/material/Checkbox';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 const Signin = () => {
@@ -14,47 +14,47 @@ const Signin = () => {
           <TextField
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id='email'
+            label='Email Address'
+            name='email'
+            autoComplete='email'
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
             required
             fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="new-password"
+            name='password'
+            label='Password'
+            type='password'
+            id='password'
+            autoComplete='new-password'
           />
         </Grid>
         {/* <Grid item xs={12}>
           <FormControlLabel
-              control={ <Checkbox name="remember" value="true" color="primary" /> }
-              label="Remember me"
+              control={ <Checkbox name='remember' value='true' color='primary' /> }
+              label='Remember me'
           />
         </Grid> */}
       </Grid>
       <Button
-        type="submit"
+        type='submit'
         fullWidth
-        variant="contained"
+        variant='contained'
         sx={{ mt: 3, mb: 2 }}
       >
         Sign In
       </Button>
       <Grid container>
         <Grid item xs>
-          {/* <Link href="#">
+          {/* <Link href='#'>
             Forgot password?
           </Link> */}
         </Grid>
         <Grid item>
-          <Link to="/signup">
-            {"Don't have an account? Sign Up"}
+          <Link to='/signup'>
+            {'Don\'t have an account? Sign Up'}
           </Link>
         </Grid>
       </Grid>

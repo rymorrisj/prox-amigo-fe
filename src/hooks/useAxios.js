@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
 import axios from '../api/axios';
-import useAuth from "./useAuth";
+import useAuth from './useAuth';
 import AUTH_ROUTES from '../api/auth';
 
 const _startInterceptors = ({ axiosFetch, _refresh, auth }) => {
