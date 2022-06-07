@@ -18,7 +18,7 @@ const AuthForm = (props) => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -46,7 +46,7 @@ const AuthForm = (props) => {
     };
 
   return (
-      <Container component="main" maxWidth="xs">
+      <Container component='main' maxWidth='xs'>
         <Box
           sx={{
             marginTop: 8,
@@ -58,10 +58,10 @@ const AuthForm = (props) => {
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component='h1' variant='h5'>
             { props.header }
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+          <Box component='form' onSubmit={handleSubmit} sx={{ mt: 1 }}>
             { props.children }
           </Box>
         </Box>
